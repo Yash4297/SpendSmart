@@ -14,20 +14,21 @@ function ExpenceFrom(props){
     const dateChangerHandler = (event)=>{
         setEnterDate(event.target.value);
     }
-
-    const submitHander =(event)=>{
-        event.preventDefault();
-        const expenceData = {
-            title : enteredTitle,
-            amount : enteredAmount ,
-            date :  new Date(enteredDate)
-        }
-        props.onSaveExpenceData(expenceData);
-        setEnterTitle('');
-        setEnterAmount('');
-        setEnterDate('');
-
-    }
+    const submitHandler = (event) => {
+      event.preventDefault();
+    
+      const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        date: new Date(enteredDate),
+      };
+    
+      props.onSaveExpenseData(expenseData);
+    
+      setEnteredTitle('');
+      setEnteredAmount('');
+      setEnteredDate('');
+    };
 
     return <form onSubmit={submitHander}>
         <div> 
