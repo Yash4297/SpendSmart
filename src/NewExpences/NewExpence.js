@@ -1,23 +1,25 @@
+import React from 'react';
+import ExpenseForm from './ExpenseForm'; // Corrected typo in component name
+import './NewExpense.css';
 
-import ExpenceFrom from './ExpenceForm';
-import './NewExpence.css';
+const NewExpense = ({ onExpenseDataSave }) => {
+  // Function to save expense data received from ExpenseForm
+  const saveExpenseDataHandler = (enteredExpenseData) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    
+    // Pass the expenseData to the parent component using the provided prop function
+    onExpenseDataSave(expenseData);
+  };
 
-const NewExpence = (prop)=>{
-
-    // This function is used to take data from NewExpence from where the ExpenceForm data is coming
-    // It is used for child to parent components  : child is ExpenceForm.js and parent is NewExpence.js
-    const saveExpenceDataHandler = (enteredExpenceData) =>{
-        const expenceData = {
-            ...enteredExpenceData,
-            id : Math.random().toString()  
-        }
-       // console.log(expenceData);
-        prop.onComing(expenceData);
-    }
-    return <div>
-        {/* onSaveExpenceData can be written anything like onsavetoyou */}
-        <ExpenceFrom onSaveExpenceData = {saveExpenceDataHandler}></ExpenceFrom> 
+  return (
+    <div>
+      {/* Use descriptive prop names */}
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
+  );
 };
 
-export default NewExpence;
+export default NewExpense;

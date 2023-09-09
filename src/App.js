@@ -12,8 +12,7 @@ function App() {
   // This function is used to take data from NewExpence from where the ExpenceForm data is coming
   // It is used for child to parent components  :
   const comingExpenceData = (expenceData) =>{
-    console.log("App.js")
-    console.log(expenceData);
+    console.log(expenceData); // checking
   }
 
   return (
